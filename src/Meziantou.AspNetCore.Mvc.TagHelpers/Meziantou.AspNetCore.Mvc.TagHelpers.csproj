@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
+    <Company>Meziantou</Company>
+    <Authors>Meziantou</Authors>
+    <Description />
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
+    <Authors>Meziantou</Authors>
+    <Company>Meziantou</Company>
+    <Description>Add HSTS headers</Description>
   </PropertyGroup>
 
   <ItemGroup>
