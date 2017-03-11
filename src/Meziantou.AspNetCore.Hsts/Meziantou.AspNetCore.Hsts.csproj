@@ -5,6 +5,7 @@
     <Authors>Meziantou</Authors>
     <Company>Meziantou</Company>
     <Description>Add HSTS headers</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

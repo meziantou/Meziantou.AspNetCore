@@ -7,6 +7,7 @@ namespace Meziantou.AspNetCore.Hsts
 {
     public class HttpStrictTransportSecurityMiddleware
     {
+        private const string HeaderName = "Strict-Transport-Security";
 
         private readonly RequestDelegate _next;
         private readonly HttpStrictTransportSecurityOptions _options;
@@ -39,7 +40,7 @@ namespace Meziantou.AspNetCore.Hsts
 
             var headerValue = GetHeaderValue();
             _logger.LogDebug("Adding HSTS response header: {HeaderValue}.", headerValue);
-            context.Response.Headers.Add("Strict-Transport-Security", headerValue);
+            context.Response.Headers[HeaderName] = headerValue;
 
             return _next(context);
         }
