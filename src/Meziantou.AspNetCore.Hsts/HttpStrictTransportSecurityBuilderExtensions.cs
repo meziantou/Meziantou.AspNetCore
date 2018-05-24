@@ -5,6 +5,7 @@ namespace Meziantou.AspNetCore.Hsts
 {
     public static class HttpStrictTransportSecurityBuilderExtensions
     {
+        [Obsolete("Use the impletation in ASP.NET Core")]
         public static IApplicationBuilder UseHttpStrictTransportSecurity(this IApplicationBuilder app, HttpStrictTransportSecurityOptions options)
         {
             if (app == null) throw new ArgumentNullException(nameof(app));
@@ -13,11 +14,13 @@ namespace Meziantou.AspNetCore.Hsts
             return app.UseMiddleware<HttpStrictTransportSecurityMiddleware>(options);
         }
 
+        [Obsolete("Use the impletation in ASP.NET Core")]
         public static IApplicationBuilder UseHttpStrictTransportSecurity(this IApplicationBuilder app)
         {
             return UseHttpStrictTransportSecurity(app, new HttpStrictTransportSecurityOptions());
         }
 
+        [Obsolete("Use the impletation in ASP.NET Core")]
         public static IApplicationBuilder UseHttpStrictTransportSecurity(this IApplicationBuilder app, Action<HttpStrictTransportSecurityOptions> configure)
         {
             if (app == null) throw new ArgumentNullException(nameof(app));

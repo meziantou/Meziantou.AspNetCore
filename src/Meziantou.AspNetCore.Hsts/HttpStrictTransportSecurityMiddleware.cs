@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Meziantou.AspNetCore.Hsts
 {
+    [Obsolete("Use the impletation in ASP.NET Core")]
     public class HttpStrictTransportSecurityMiddleware
     {
         private const string HeaderName = "Strict-Transport-Security";

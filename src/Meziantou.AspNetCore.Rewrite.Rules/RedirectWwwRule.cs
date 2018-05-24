@@ -5,7 +5,7 @@ using System.Net;
 
 namespace Meziantou.AspNetCore.Rewrite.Rules
 {
-    public class RedirectWwwRule : Microsoft.AspNetCore.Rewrite.IRule
+    public class RedirectWwwRule : IRule
     {
         public int StatusCode { get; set; } = (int)HttpStatusCode.MovedPermanently;
         public bool ExcludeLocalhost { get; set; } = true;
