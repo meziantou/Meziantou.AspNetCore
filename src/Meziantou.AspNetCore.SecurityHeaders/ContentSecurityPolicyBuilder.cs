@@ -6,6 +6,12 @@ namespace Meziantou.AspNetCore.SecurityHeaders
 {
     public class ContentSecurityPolicyBuilder
     {
+        public const string Self = "'self'";
+        public const string UnsafeInline = "'unsafe-inline'";
+        public const string UnsafeEval = "'unsafe-eval'";
+        public const string None = "'none'";
+        public const string StrictDynamic = "'strict-dynamic'";
+
         public ContentSecurityPolicyCollectionBuilder DefaultSources { get; } = new ContentSecurityPolicyCollectionBuilder();
         public ContentSecurityPolicyCollectionBuilder ScriptSources { get; } = new ContentSecurityPolicyCollectionBuilder();
         public ContentSecurityPolicyCollectionBuilder ImageSources { get; } = new ContentSecurityPolicyCollectionBuilder();
@@ -18,55 +24,109 @@ namespace Meziantou.AspNetCore.SecurityHeaders
         public bool UpgradeInsecureRequests { get; set; }
         public bool DisownOpener { get; set; }
 
-        public ContentSecurityPolicyBuilder WithDefaultSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddDefaultSource(string value)
+        {
+            DefaultSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddDefaultSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(DefaultSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithScriptSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddScriptSource(string value)
+        {
+            ScriptSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddScriptSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(ScriptSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithImageSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddImageSource(string value)
+        {
+            ImageSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddImageSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(ImageSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithStylesheetSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddStylesheetSource(string value)
+        {
+            StylesheetSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddStylesheetSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(StylesheetSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithFontSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddFontSource(string value)
+        {
+            FontSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddFontSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(FontSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithFrameSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddFrameSource(string value)
+        {
+            FrameSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddFrameSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(FrameSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithManifestSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddManifestSource(string value)
+        {
+            ManifestSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddManifestSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(ManifestSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithConnectSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddConnectSource(string value)
+        {
+            ConnectSources.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddConnectSources(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(ConnectSources);
             return this;
         }
 
-        public ContentSecurityPolicyBuilder WithReportUris(Action<ContentSecurityPolicyCollectionBuilder> configure)
+        public ContentSecurityPolicyBuilder AddReportUri(string value)
+        {
+            ReportUris.Add(value);
+            return this;
+        }
+
+        public ContentSecurityPolicyBuilder AddReportUris(Action<ContentSecurityPolicyCollectionBuilder> configure)
         {
             configure(ReportUris);
             return this;

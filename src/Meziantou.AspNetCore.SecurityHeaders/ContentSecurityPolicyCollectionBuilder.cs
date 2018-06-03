@@ -5,41 +5,35 @@ namespace Meziantou.AspNetCore.SecurityHeaders
 {
     public class ContentSecurityPolicyCollectionBuilder
     {
-        private const string Self = "'self'";
-        private const string UnsafeInline = "'unsafe-inline'";
-        private const string UnsafeEval = "'unsafe-eval'";
-        private const string None = "'none'";
-        private const string StrictDynamic = "'strict-dynamic'";
-
         public ICollection<string> Values { get; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         public ContentSecurityPolicyCollectionBuilder AddSelf()
         {
-            Values.Add(Self);
+            Values.Add(ContentSecurityPolicyBuilder.Self);
             return this;
         }
 
         public ContentSecurityPolicyCollectionBuilder AddUnsafeInline()
         {
-            Values.Add(UnsafeInline);
+            Values.Add(ContentSecurityPolicyBuilder.UnsafeInline);
             return this;
         }
 
         public ContentSecurityPolicyCollectionBuilder AddUnsafeEval()
         {
-            Values.Add(UnsafeEval);
+            Values.Add(ContentSecurityPolicyBuilder.UnsafeEval);
             return this;
         }
 
         public ContentSecurityPolicyCollectionBuilder AddNone()
         {
-            Values.Add(None);
+            Values.Add(ContentSecurityPolicyBuilder.None);
             return this;
         }
 
         public ContentSecurityPolicyCollectionBuilder AddStrictDynamic()
         {
-            Values.Add(StrictDynamic);
+            Values.Add(ContentSecurityPolicyBuilder.StrictDynamic);
             return this;
         }
 
