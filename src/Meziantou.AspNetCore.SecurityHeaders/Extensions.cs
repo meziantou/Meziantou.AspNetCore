@@ -53,8 +53,8 @@ namespace Meziantou.AspNetCore.SecurityHeaders
 
         public static IApplicationBuilder UseSecurityHeaders(this IApplicationBuilder app)
         {
-            app.UseMiddleware<XssProtectionOptions>();
-            app.UseMiddleware<FrameOptions>();
+            app.UseMiddleware<XssProtectionMiddleware>();
+            app.UseMiddleware<FrameOptionsMiddleware>();
             app.UseMiddleware<ContentTypeOptionsMiddleware>();
             app.UseMiddleware<ReferrerPolicyMiddleware>();
             app.UseMiddleware<ContentSecurityPolicyMiddleware>();
