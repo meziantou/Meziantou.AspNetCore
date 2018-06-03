@@ -18,7 +18,7 @@ namespace Meziantou.AspNetCore.SecurityHeaders
         public Task Invoke(HttpContext context)
         {
             var options = _options.Value;
-            string headerValue;
+            string headerValue = null;
             switch (options.Value)
             {
                 case FrameOptionsValue.Deny:
@@ -32,7 +32,11 @@ namespace Meziantou.AspNetCore.SecurityHeaders
                     break;
             }
 
-            context.Response.Headers["X-Frame-Options"] = headerValue;
+            if (headerValue != null)
+            {
+                context.Response.Headers["X-Frame-Options"] = headerValue;
+            }
+
             return _next(context);
         }
     }

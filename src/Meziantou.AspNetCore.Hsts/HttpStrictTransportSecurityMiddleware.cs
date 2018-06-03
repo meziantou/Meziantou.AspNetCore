@@ -16,13 +16,9 @@ namespace Meziantou.AspNetCore.Hsts
 
         public HttpStrictTransportSecurityMiddleware(RequestDelegate next, HttpStrictTransportSecurityOptions options, ILogger<HttpStrictTransportSecurityMiddleware> logger)
         {
-            if (next == null) throw new ArgumentNullException(nameof(next));
-            if (options == null) throw new ArgumentNullException(nameof(options));
-            if (logger == null) throw new ArgumentNullException(nameof(logger));
-
-            _logger = logger;
-            _next = next;
-            _options = options;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _next = next ?? throw new ArgumentNullException(nameof(next));
+            _options = options ?? throw new ArgumentNullException(nameof(options));
         }
 
         public Task Invoke(HttpContext context)
