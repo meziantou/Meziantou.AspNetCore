@@ -50,7 +50,7 @@ namespace Meziantou.AspNetCore.SecurityHeaders
                     return _next(context);
             }
 
-            context.Response.Headers["X-Frame-Options"] = headerValue;
+            context.Response.Headers["Referrer-Policy"] = headerValue;
             return _next(context);
         }
     }
